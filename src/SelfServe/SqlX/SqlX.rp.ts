@@ -8,7 +8,7 @@ import {
   FetchPricesResponse,
   RegionsResponse,
   SqlxServiceResource,
-  UpdateDedicatedGatewayRequestParameters
+  UpdateDedicatedGatewayRequestParameters,
 } from "./SqlxTypes";
 
 const apiVersion = "2021-04-01-preview";
@@ -139,7 +139,12 @@ const getGeneralPath = (subscriptionId: string, resourceGroup: string, name: str
 };
 
 export const getReadRegions = async (): Promise<Array<string>> => {
-  const telemetryData = { feature: "Calculate approximate cost", function: "getRegions", description: "", selfServeClassName: SqlX.name };
+  const telemetryData = {
+    feature: "Calculate approximate cost",
+    function: "getRegions",
+    description: "",
+    selfServeClassName: SqlX.name,
+  };
   const getReadRegionsTimestamp = selfServeTraceStart(telemetryData);
 
   try {
@@ -174,7 +179,12 @@ const getFetchPricesPathForRegion = (subscriptionId: string): string => {
 };
 
 export const getPriceMap = async (regions: Array<string>): Promise<Map<string, Map<string, number>>> => {
-  const telemetryData = { feature: "Calculate approximate cost", function: "getPriceMap", description: "fetch prices API call", selfServeClassName: SqlX.name };
+  const telemetryData = {
+    feature: "Calculate approximate cost",
+    function: "getPriceMap",
+    description: "fetch prices API call",
+    selfServeClassName: SqlX.name,
+  };
   const getPriceMapTimestamp = selfServeTraceStart(telemetryData);
 
   try {
